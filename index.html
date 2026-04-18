@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerardo Hernandez | Cybersecurity Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --card: #ffffff;
+      --primary: #18181b;
+      --primary-soft: #f4f4f5;
+      --accent: #71717a;
+      --accent-blue: #3b82f6;
+      --accent-green: #22c55e;
+      --accent-amber: #f59e0b;
+      --text-main: #09090b;
+      --text-dim: #52525b;
+      --border: #e4e4e7;
+      --radius: 20px;
+      --f-head: 'Quicksand', sans-serif;
+      --f-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: all 0.2s ease;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--f-body);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-bottom: 100px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* ── PROFILE HEADER ── */
+    .profile-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .avatar-wrapper {
+      width: 190px;
+      height: 190px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.12);
+    }
+
+    .hero-name {
+      font-family: var(--f-head);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .hero-title {
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .hero-sub {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      font-size: 0.875rem;
+      color: var(--text-dim);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--text-dim);
+    }
+
+    .contact-item:hover { color: var(--primary); }
+
+    .contact-item svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--primary);
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    /* ── TABS ── */
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 30px;
+      background: rgba(255,255,255,0.75);
+      padding: 8px;
+      border-radius: 100px;
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08);
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: none;
+      background: transparent;
+      color: var(--text-dim);
+      font-family: var(--f-head);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 10px 15px -3px rgba(24,24,27,0.25);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .tab-content.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .section-title {
+      font-family: var(--f-head);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ── CARD ITEMS ── */
+    .card-item {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .card-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .card-body {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .card-body ul {
+      padding-left: 18px;
+    }
+
+    .card-body li {
+      margin-bottom: 4px;
+    }
+
+    /* ── GPA BADGE ── */
+    .gpa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--primary-soft);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-left: 8px;
+    }
+
+    .honor-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-amber);
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.25);
+      border-radius: 100px;
+      padding: 2px 10px;
+      margin-top: 6px;
+    }
+
+    /* ── SKILL CLOUD ── */
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      background: var(--primary-soft);
+      color: var(--primary);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: default;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .cert-item {
+      background: #fafafa;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .cert-status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-active  { background: var(--accent-green); }
+    .dot-pending { background: var(--accent-amber); }
+
+    .cert-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .label-active  { background: rgba(34,197,94,0.12); color: #16a34a; }
+    .label-pending { background: rgba(245,158,11,0.12); color: #b45309; }
+
+    /* ── PROJECT CARDS ── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--primary) 0%, #71717a 100%);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+      transform: translateY(-2px);
+    }
+
+    .project-title {
+      font-family: var(--f-head);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .project-stack {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .project-body {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    /* ── BOOKS ── */
+    .book-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .book-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .book-cover {
+      width: 54px; height: 78px;
+      border-radius: 3px 6px 6px 3px;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 3px 3px 10px rgb(0 0 0 / 0.25), inset -3px 0 6px rgb(0 0 0 / 0.2);
+      padding: 6px 4px;
+      position: relative;
+    }
+
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .book-spine-title {
+      font-family: var(--f-head);
+      font-size: 7px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      line-height: 1.3;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    .book-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 3px;
+      color: var(--text-main);
+    }
+
+    .book-author {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .book-desc {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* ── EDIT MODE ── */
+    .edit-mode [contenteditable="true"] {
+      background: rgba(24,24,27,0.05);
+      border-radius: 8px;
+      padding: 4px 8px;
+      outline: 2px solid var(--primary);
+    }
+
+    .delete-btn, .add-btn, .delete-skill, #add-skill-form { display: none; }
+
+    .edit-mode .delete-btn {
+      display: flex;
+      position: absolute;
+      top: -10px; right: -10px;
+      background: #ef4444;
+      color: white;
+      border: none;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(239,68,68,0.4);
+      z-index: 5;
+    }
+
+    .edit-mode .add-btn {
+      display: inline-flex;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .edit-mode .delete-skill {
+      display: inline-block;
+      color: #ef4444;
+      cursor: pointer;
+      margin-left: 4px;
+    }
+
+    .edit-mode #add-skill-form {
+      display: flex;
+      margin-top: 16px;
+      gap: 10px;
+    }
+
+    #skill-input {
+      flex: 1;
+      padding: 10px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      outline: none;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    /* ── FLOATING CONTROLS ── */
+    .ui-controls {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+    }
+
+    .ui-btn {
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    }
+
+    .ui-btn:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .ui-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .ui-btn svg { width: 22px; height: 22px; }
+
+    /* ── TOOLTIP ── */
+    .ui-btn-wrap {
+      position: relative;
+    }
+    .ui-btn-wrap:hover .tooltip {
+      opacity: 1;
+      transform: translateX(-4px);
+    }
+    .tooltip {
+      position: absolute;
+      right: calc(100% + 12px);
+      top: 50%;
+      transform: translateY(-50%) translateX(4px);
+      background: var(--primary);
+      color: white;
+      font-family: var(--f-head);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    /* ── SUMMARY HIGHLIGHT ── */
+    .summary-text {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .summary-text strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* ── CERTIFICATIONS TAB ── */
+    .cert-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+
+    .cert-showcase-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .cert-showcase-item:hover {
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.08);
+      transform: translateY(-2px);
+    }
+
+    .cert-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+    }
+
+    .cert-showcase-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .cert-showcase-issuer {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .cert-progress-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .cert-progress-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      gap: 4px 16px;
+      align-items: center;
+    }
+
+    .cert-progress-info { grid-column: 1; grid-row: 1; }
+    .cert-progress-bar-wrap { grid-column: 1; grid-row: 2; height: 6px; background: var(--border); border-radius: 100px; overflow: hidden; }
+    .cert-progress-bar { height: 100%; background: linear-gradient(90deg, #f59e0b, #d97706); border-radius: 100px; transition: width 1s ease; }
+    .cert-progress-pct { grid-column: 2; grid-row: 1 / 3; font-size: 0.75rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .cert-progress-name { font-weight: 700; font-size: 0.9rem; color: var(--text-main); }
+    .cert-progress-issuer { font-size: 0.78rem; color: var(--text-dim); }
+
+    /* ── TIMELINE TAB ── */
+    .timeline-wrap {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline-wrap::before {
+      content: '';
+      position: absolute;
+      left: 10px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--border), transparent);
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .tl-item:last-child { margin-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -26px; top: 4px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--border);
+    }
+
+    .tl-date {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .tl-card {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .tl-card:hover {
+      box-shadow: 0 6px 16px rgb(0 0 0 / 0.07);
+      transform: translateX(4px);
+    }
+
+    .tl-title {
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+
+    .tl-sub {
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .tl-desc {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    /* ── CONTACT TAB ── */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .contact-card:hover {
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.08);
+      transform: translateY(-2px);
+    }
+
+    .contact-card-icon {
+      width: 50px; height: 50px;
+      border-radius: 14px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+    }
+
+    .contact-card-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+
+    .contact-card-value {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .contact-card-arrow {
+      margin-left: auto;
+      color: var(--border);
+      flex-shrink: 0;
+    }
+
+    .contact-card:hover .contact-card-arrow { color: var(--primary); }
+
+    /* ── PRINT ── */
+    @media print {
+      .tabs-nav, .ui-controls, .add-btn, .delete-btn, #add-skill-form { display: none !important; }
+      .tab-content { display: block !important; opacity: 1 !important; transform: none !important; margin-bottom: 20px; }
+      body { background: white !important; padding: 0 !important; }
+      .section-card { box-shadow: none !important; border: 1px solid #eee !important; page-break-inside: avoid; margin-bottom: 16px; }
+      .container { padding: 0 !important; max-width: 100% !important; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero-name { font-size: 2rem; }
+      .tabs-nav { flex-wrap: wrap; border-radius: 24px; padding: 4px; }
+      .tab-btn { padding: 8px 14px; flex: 1; text-align: center; font-size: 0.82rem; }
+      .project-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="main-content">
+
+  <!-- ── PROFILE HEADER ── -->
+  <header class="profile-header">
+    <div class="avatar-wrapper">
+      <!-- Replace src with your hosted photo URL -->
+      <img src="data:image/jpeg;base64,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" alt="Gerardo Hernandez" class="hero-photo">
+    </div>
+    <h1 class="hero-name" contenteditable="false">Gerardo Hernandez</h1>
+    <p class="hero-title" contenteditable="false">Security Analyst Lead &nbsp;·&nbsp; D.Eng. Candidate</p>
+
+
+    <div class="contact-grid">
+      <span class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span contenteditable="false">Laredo, Texas</span>
+      </span>
+      <span class="contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.33A2 2 0 013.6 1.27h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span contenteditable="false">956.206.2536</span>
+      </span>
+      <a class="contact-item" href="mailto:gerasanmi95@gmail.com">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span contenteditable="false">gerasanmi95@gmail.com</span>
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/gerardo-hernandez-b19172120/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <span contenteditable="false">LinkedIn Profile</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ── TABS ── -->
+  <nav class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab('resume', this)">Resume</button>
+    <button class="tab-btn" onclick="switchTab('education', this)">Education</button>
+    <button class="tab-btn" onclick="switchTab('certifications', this)">Certifications</button>
+    <button class="tab-btn" onclick="switchTab('projects', this)">Projects</button>
+    <button class="tab-btn" onclick="switchTab('books', this)">Reading List</button>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       TAB: RESUME
+  ══════════════════════════════════════════ -->
+  <div id="resume" class="tab-content active">
+
+    <!-- Summary -->
+    <div class="section-card">
+      <h3 class="section-title">Professional Summary</h3>
+      <p class="summary-text" contenteditable="false">
+        Cybersecurity professional with over <strong>five years</strong> of enterprise-grade experience in
+        threat detection, incident response, and cloud security architecture.
+        Currently serving as <strong>Security Analyst Lead at Kellanova</strong>, leading SIEM tuning,
+        phishing simulation programs, and NIST/ISO-aligned governance frameworks.
+        Doctoral candidate at <strong>George Washington University</strong> (expected 2026),
+        with research focus on <strong>cybersecurity analytics, AI, and risk management</strong>.
+        Skilled in Python, PowerShell, MITRE ATT&CK, and multi-cloud security operations.
+      </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="section-card">
+      <h3 class="section-title">Professional Experience <button class="add-btn" onclick="addExperience()">+ Add</button></h3>
+      <div id="experience-list">
+
+        <div class="card-item">
+          <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+          <h4 class="card-title" contenteditable="false">Security Analyst Lead</h4>
+          <div class="card-meta">
+            <span contenteditable="false">Kellanova Company — Naperville, IL</span>
+            <span contenteditable="false">Jan 2025 – Present</span>
+          </div>
+          <div class="card-body" contenteditable="false">
+            <ul>
+              <li>Lead threat detection, response, and prevention across cloud and on-prem environments</li>
+              <li>Develop cybersecurity policies and risk management strategies aligned with NIST &amp; ISO 2700x</li>
+              <li>Deliver phishing simulations and security awareness training to reduce human-layer risk</li>
+              <li>Leverage SIEM tooling and automation scripts to streamline incident response workflows</li>
+              <li>Serve as subject matter expert for cloud security, governance, and compliance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+          <h4 class="card-title" contenteditable="false">Associate Cloud Engineer</h4>
+          <div class="card-meta">
+            <span contenteditable="false">Kellanova Company — Naperville, IL</span>
+            <span contenteditable="false">Jan 2021 – Jan 2025</span>
+          </div>
+          <div class="card-body" contenteditable="false">
+            <ul>
+              <li>Designed, deployed, and managed scalable, secure AWS cloud infrastructures</li>
+              <li>Administered Active Directory solutions for authentication and authorization</li>
+              <li>Managed VMWare virtual environments for Unix and Windows systems</li>
+              <li>Developed PowerShell and Python automation scripts for operational efficiency</li>
+              <li>Mentored IT interns as co-leader of the IT Internship Committee</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+          <h4 class="card-title" contenteditable="false">IT Security Intern</h4>
+          <div class="card-meta">
+            <span contenteditable="false">Kellogg Company — Oak Brook, IL</span>
+            <span contenteditable="false">May 2019 – Jan 2021</span>
+          </div>
+          <div class="card-body" contenteditable="false">
+            <ul>
+              <li>Built automation scripts for password management and security policy enforcement</li>
+              <li>Secured mobile applications through scripting and vulnerability mitigation</li>
+              <li>Collaborated cross-functionally on data integrity and cybersecurity projects</li>
+              <li>Gained hands-on experience in automation, scripting, and incident response</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section-card">
+      <h3 class="section-title">Technical Expertise</h3>
+      <div class="skill-cloud" id="skill-cloud">
+        <div class="skill-tag"><span>Cloud Security</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>SIEM & Detection</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>Python</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>PowerShell</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>JavaScript</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>AWS</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>Azure</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>VMWare</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>Active Directory</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>MITRE ATT&CK</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>NIST / ISO</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>Incident Response</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>Threat Hunting</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>GRC Platforms</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>Data Analytics</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+        <div class="skill-tag"><span>Phishing Simulation</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span></div>
+      </div>
+      <div id="add-skill-form">
+        <input type="text" id="skill-input" placeholder="Enter new skill…">
+        <button class="add-btn" style="display:flex; margin:0" onclick="addSkill()">Add</button>
+      </div>
+    </div>
+
+
+  </div><!-- end #resume -->
+
+  <!-- ══════════════════════════════════════════
+       TAB: PROJECTS
+  ══════════════════════════════════════════ -->
+  <div id="projects" class="tab-content">
+    <div class="section-card">
+      <h3 class="section-title">Key Projects <button class="add-btn" onclick="addProject()">+ Add</button></h3>
+      <div class="project-grid" id="project-list">
+
+      </div>
+    </div>
+  </div><!-- end #projects -->
+
+  <!-- ══════════════════════════════════════════
+       TAB: EDUCATION
+  ══════════════════════════════════════════ -->
+  <div id="education" class="tab-content">
+    <div class="section-card">
+      <h3 class="section-title">Academic Background <button class="add-btn" onclick="addEducation()">+ Add</button></h3>
+      <div id="education-list">
+
+        <div class="card-item">
+          <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+          <h4 class="card-title" contenteditable="false">Doctor of Engineering (D.Eng.) — Cyber Security</h4>
+          <div class="card-meta">
+            <span contenteditable="false">The George Washington University — Washington, DC</span>
+            <span contenteditable="false">Expected Aug 2026</span>
+          </div>
+          <p class="card-body" contenteditable="false">Focus: Cybersecurity Analytics, Artificial Intelligence, and Risk Management.</p>
+        </div>
+
+        <div class="card-item">
+          <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+          <h4 class="card-title" contenteditable="false">
+            M.S. Cyber Security
+            <span class="gpa-badge">4.0 GPA</span>
+          </h4>
+          <div class="card-meta">
+            <span contenteditable="false">The University of Texas at San Antonio</span>
+            <span contenteditable="false">May 2021</span>
+          </div>
+          <p class="card-body" contenteditable="false">Graduated with Honors. C-SPECC Cloud Computing and Security Scholar — full scholarship recipient.</p>
+          <span class="honor-tag">Graduated with Honors</span>
+        </div>
+
+        <div class="card-item">
+          <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+          <h4 class="card-title" contenteditable="false">
+            B.B.A. Cyber Security
+            <span class="gpa-badge">3.85 GPA</span>
+          </h4>
+          <div class="card-meta">
+            <span contenteditable="false">The University of Texas at San Antonio</span>
+            <span contenteditable="false">December 2019</span>
+          </div>
+          <p class="card-body" contenteditable="false">C-SPECC Cloud Computing and Security Scholar.</p>
+          <span class="honor-tag">Magna Cum Laude</span>
+        </div>
+
+        <div class="card-item">
+          <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+          <h4 class="card-title" contenteditable="false">
+            B.B.A. International Economics
+            <span class="gpa-badge">3.55 GPA</span>
+          </h4>
+          <div class="card-meta">
+            <span contenteditable="false">Texas A&amp;M International University — Laredo, TX</span>
+            <span contenteditable="false">May 2018</span>
+          </div>
+          <p class="card-body" contenteditable="false">Member of Phi Kappa Phi Honor Society.</p>
+          <span class="honor-tag">Cum Laude</span>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- end #education -->
+
+  <!-- ══════════════════════════════════════════
+       TAB: READING LIST
+  ══════════════════════════════════════════ -->
+  <div id="books" class="tab-content">
+    <div class="section-card">
+      <h3 class="section-title">Reading List <button class="add-btn" onclick="addBook()">+ Add</button></h3>
+      <div id="book-list">
+
+        <div class="book-item" style="position:relative">
+          <button class="delete-btn" onclick="this.closest('.book-item').remove()">&times;</button>
+          <div class="book-cover" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+            <span class="book-spine-title">The Cuckoo's Egg</span>
+          </div>
+          <div>
+            <p class="book-title" contenteditable="false">The Cuckoo's Egg</p>
+            <p class="book-author" contenteditable="false">Cliff Stoll</p>
+          </div>
+        </div>
+
+        <div class="book-item" style="position:relative">
+          <button class="delete-btn" onclick="this.closest('.book-item').remove()">&times;</button>
+          <div class="book-cover" style="background:linear-gradient(135deg,#0f3460,#e94560)">
+            <span class="book-spine-title">Sandworm</span>
+          </div>
+          <div>
+            <p class="book-title" contenteditable="false">Sandworm</p>
+            <p class="book-author" contenteditable="false">Andy Greenberg</p>
+          </div>
+        </div>
+
+        <div class="book-item" style="position:relative">
+          <button class="delete-btn" onclick="this.closest('.book-item').remove()">&times;</button>
+          <div class="book-cover" style="background:linear-gradient(135deg,#2d6a4f,#1b4332)">
+            <span class="book-spine-title">The Art of Intrusion</span>
+          </div>
+          <div>
+            <p class="book-title" contenteditable="false">The Art of Intrusion</p>
+            <p class="book-author" contenteditable="false">Kevin Mitnick</p>
+          </div>
+        </div>
+
+        <div class="book-item" style="position:relative">
+          <button class="delete-btn" onclick="this.closest('.book-item').remove()">&times;</button>
+          <div class="book-cover" style="background:linear-gradient(135deg,#7b2d8b,#4a0e5e)">
+            <span class="book-spine-title">Click Here to Kill Everybody</span>
+          </div>
+          <div>
+            <p class="book-title" contenteditable="false">Click Here to Kill Everybody</p>
+            <p class="book-author" contenteditable="false">Bruce Schneier</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- end #books -->
+
+  <!-- ══════════════════════════════════════════
+       TAB: CERTIFICATIONS
+  ══════════════════════════════════════════ -->
+  <div id="certifications" class="tab-content">
+    <div class="section-card">
+      <h3 class="section-title">Active Certifications</h3>
+      <div class="cert-showcase">
+
+        <div class="cert-showcase-item">
+          <div class="cert-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
+            <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="cert-showcase-body">
+            <p class="cert-showcase-name">AWS Cloud Practitioner</p>
+            <p class="cert-showcase-issuer">Amazon Web Services</p>
+            <span class="cert-label label-active">Active</span>
+          </div>
+        </div>
+
+        <div class="cert-showcase-item">
+          <div class="cert-icon" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">
+            <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="cert-showcase-body">
+            <p class="cert-showcase-name">Certified SAFe® 4 Practitioner</p>
+            <p class="cert-showcase-issuer">Scaled Agile, Inc.</p>
+            <span class="cert-label label-active">Active</span>
+          </div>
+        </div>
+
+        <div class="cert-showcase-item">
+          <div class="cert-icon" style="background:linear-gradient(135deg,#22c55e,#15803d)">
+            <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="cert-showcase-body">
+            <p class="cert-showcase-name">Certified SAFe® Scrum Master</p>
+            <p class="cert-showcase-issuer">Scaled Agile, Inc.</p>
+            <span class="cert-label label-active">Active</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3 class="section-title">In Progress</h3>
+      <div class="cert-progress-list">
+
+        <div class="cert-progress-item">
+          <div class="cert-progress-info">
+            <p class="cert-progress-name">CompTIA Network+</p>
+            <p class="cert-progress-issuer">CompTIA</p>
+          </div>
+          <div class="cert-progress-bar-wrap">
+            <div class="cert-progress-bar" style="width:85%"></div>
+          </div>
+          <span class="cert-progress-pct">Course Complete</span>
+        </div>
+
+        <div class="cert-progress-item">
+          <div class="cert-progress-info">
+            <p class="cert-progress-name">CompTIA Security+</p>
+            <p class="cert-progress-issuer">CompTIA</p>
+          </div>
+          <div class="cert-progress-bar-wrap">
+            <div class="cert-progress-bar" style="width:85%"></div>
+          </div>
+          <span class="cert-progress-pct">Course Complete</span>
+        </div>
+
+        <div class="cert-progress-item">
+          <div class="cert-progress-info">
+            <p class="cert-progress-name">AWS Solutions Architect</p>
+            <p class="cert-progress-issuer">Amazon Web Services</p>
+          </div>
+          <div class="cert-progress-bar-wrap">
+            <div class="cert-progress-bar" style="width:85%"></div>
+          </div>
+          <span class="cert-progress-pct">Course Complete</span>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- end #certifications -->
+
+
+</div><!-- end .container -->
+
+
+
+<script>
+  let editMode = false;
+
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('#main-content .tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tabs-nav .tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  function toggleEditMode() {
+    editMode = !editMode;
+    document.body.classList.toggle('edit-mode', editMode);
+    document.querySelectorAll('[contenteditable]').forEach(el => {
+      el.setAttribute('contenteditable', editMode);
+    });
+    const lockIcon   = document.getElementById('lock-icon');
+    const unlockIcon = document.getElementById('unlock-icon');
+    const toggleBtn  = document.getElementById('edit-toggle');
+    if (editMode) {
+      lockIcon.style.display = 'none';
+      unlockIcon.style.display = 'block';
+      toggleBtn.classList.add('active');
+    } else {
+      lockIcon.style.display = 'block';
+      unlockIcon.style.display = 'none';
+      toggleBtn.classList.remove('active');
+    }
+  }
+
+  function addExperience() {
+    const list = document.getElementById('experience-list');
+    const item = document.createElement('div');
+    item.className = 'card-item';
+    item.innerHTML = `
+      <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+      <h4 class="card-title" contenteditable="${editMode}">New Position</h4>
+      <div class="card-meta">
+        <span contenteditable="${editMode}">Company</span>
+        <span contenteditable="${editMode}">Dates</span>
+      </div>
+      <p class="card-body" contenteditable="${editMode}">Role description here.</p>
+    `;
+    list.appendChild(item);
+  }
+
+  function addProject() {
+    const list = document.getElementById('project-list');
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML = `
+      <button class="delete-btn" onclick="this.closest('.project-card').remove()">&times;</button>
+      <p class="project-title" contenteditable="${editMode}">Project Name</p>
+      <p class="project-stack" contenteditable="${editMode}">Tech stack</p>
+      <p class="project-body" contenteditable="${editMode}">Project description.</p>
+    `;
+    list.appendChild(card);
+  }
+
+  function addEducation() {
+    const list = document.getElementById('education-list');
+    const item = document.createElement('div');
+    item.className = 'card-item';
+    item.innerHTML = `
+      <button class="delete-btn" onclick="this.parentElement.remove()">&times;</button>
+      <h4 class="card-title" contenteditable="${editMode}">Degree / Program</h4>
+      <div class="card-meta">
+        <span contenteditable="${editMode}">Institution</span>
+        <span contenteditable="${editMode}">Year</span>
+      </div>
+      <p class="card-body" contenteditable="${editMode}">Focus / details.</p>
+    `;
+    list.appendChild(item);
+  }
+
+  function addBook() {
+    const list = document.getElementById('book-list');
+    const item = document.createElement('div');
+    item.className = 'book-item';
+    item.style.position = 'relative';
+    item.innerHTML = `
+      <button class="delete-btn" onclick="this.closest('.book-item').remove()">&times;</button>
+      <div class="book-cover">📖</div>
+      <div>
+        <p class="book-title" contenteditable="${editMode}">Book Title</p>
+        <p class="book-author" contenteditable="${editMode}">Author</p>
+        <p class="book-desc" contenteditable="${editMode}">Why I recommend it / key takeaways.</p>
+      </div>
+    `;
+    list.appendChild(item);
+  }
+
+  function addCertification() {
+    const list = document.getElementById('certification-list');
+    const item = document.createElement('div');
+    item.className = 'cert-item';
+    item.innerHTML = `
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="cert-status-dot dot-pending"></div>
+        <span contenteditable="${editMode}">New Certification</span>
+      </div>
+      <span class="cert-label label-pending">Pending</span>
+      <button class="delete-btn" style="position:relative;top:0;right:0;width:22px;height:22px;border-radius:6px" onclick="this.parentElement.remove()">&times;</button>
+    `;
+    list.appendChild(item);
+  }
+
+  function addSkill() {
+    const input = document.getElementById('skill-input');
+    const cloud = document.getElementById('skill-cloud');
+    if (input.value.trim()) {
+      const tag = document.createElement('div');
+      tag.className = 'skill-tag';
+      tag.innerHTML = `<span>${input.value.trim()}</span><span class="delete-skill" onclick="removeSkill(this)">&times;</span>`;
+      cloud.appendChild(tag);
+      input.value = '';
+    }
+  }
+
+  function removeSkill(el) { el.parentElement.remove(); }
+
+  function saveToLocalStorage() {
+    const was = editMode;
+    if (was) toggleEditMode();
+    // Save only the individual tab section contents, not the full nav
+    const data = {};
+    ['resume','projects','education','books','certifications'].forEach(id => {
+      data[id] = document.getElementById(id).innerHTML;
+    });
+    localStorage.setItem('gerardoResume_V4_data', JSON.stringify(data));
+    if (was) toggleEditMode();
+    const btn = document.querySelector('.ui-btn[onclick*="save"]') || event.currentTarget;
+    btn.style.background = '#22c55e';
+    btn.style.color = 'white';
+    setTimeout(() => { btn.style.background = ''; btn.style.color = ''; }, 1200);
+  }
+
+  function loadFromLocalStorage() {
+    try {
+      const saved = localStorage.getItem('gerardoResume_V4_data');
+      if (saved) {
+        const data = JSON.parse(saved);
+        ['resume','projects','education','books','certifications'].forEach(id => {
+          if (data[id] && document.getElementById(id)) {
+            document.getElementById(id).innerHTML = data[id];
+          }
+        });
+      }
+    } catch(e) { /* ignore corrupt storage */ }
+  }
+
+  function exportPDF() {
+    const was = editMode;
+    if (was) toggleEditMode();
+    window.print();
+    if (was) toggleEditMode();
+  }
+
+  window.onload = () => {
+    loadFromLocalStorage();
+    document.getElementById('skill-input').addEventListener('keypress', e => {
+      if (e.key === 'Enter') addSkill();
+    });
+  };
+</script>
+
+</body>
+</html>
